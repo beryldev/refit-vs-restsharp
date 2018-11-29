@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitCompare.Server", "RefitCompare.Server\RefitCompare.Server.csproj", "{75B8C3E8-9B4B-4196-9B37-4182F1D77869}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitCompare.Test", "RefitCompare.Test\RefitCompare.Test.csproj", "{EB77D3D5-52C2-4302-829A-1A92148E1B4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitCompare.Server", "RefitCompare.Server\RefitCompare.Server.csproj", "{3E0AA8B5-8DFF-4FF9-9A40-FFD6F49411FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{75B8C3E8-9B4B-4196-9B37-4182F1D77869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75B8C3E8-9B4B-4196-9B37-4182F1D77869}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75B8C3E8-9B4B-4196-9B37-4182F1D77869}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75B8C3E8-9B4B-4196-9B37-4182F1D77869}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EB77D3D5-52C2-4302-829A-1A92148E1B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB77D3D5-52C2-4302-829A-1A92148E1B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB77D3D5-52C2-4302-829A-1A92148E1B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB77D3D5-52C2-4302-829A-1A92148E1B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E0AA8B5-8DFF-4FF9-9A40-FFD6F49411FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E0AA8B5-8DFF-4FF9-9A40-FFD6F49411FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E0AA8B5-8DFF-4FF9-9A40-FFD6F49411FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E0AA8B5-8DFF-4FF9-9A40-FFD6F49411FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
