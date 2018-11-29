@@ -8,7 +8,7 @@ namespace RefitCompare.Test
     public partial class SimpleGetRequest
     {
         [Fact]
-        public async void DoByRefit()
+        public async void DoWithRefit()
         {
             var api = RestService.For<IUsers>("http://localhost:5000");
 
@@ -19,7 +19,7 @@ namespace RefitCompare.Test
         }
 
         [Fact]
-        public async void DoByRestSharp()
+        public async void DoWithRestSharp()
         {
             var client = new RestClient("http://localhost:5000");
             var request = new RestRequest("api/users/{username}", Method.GET);

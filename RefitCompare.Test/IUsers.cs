@@ -4,12 +4,9 @@ using RefitCompare.Server.Views;
 
 namespace RefitCompare.Test
 {
-    public partial class SimpleGetRequest
+    interface IUsers
     {
-        public interface IUsers
-        {
-            [Get("/api/users/{username}")]
-            Task<UserView> GetUser(string username);
-        }
+        [Get("/api/users/{username}")]
+        Task<UserView> GetUser(string username);
     }
 }
