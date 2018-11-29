@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitCompare.Test", "RefitCompare.Test\RefitCompare.Test.csproj", "{EB77D3D5-52C2-4302-829A-1A92148E1B4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitVsRestSharp.Test", "RefitVsRestSharp.Test\RefitVsRestSharp.Test.csproj", "{EB77D3D5-52C2-4302-829A-1A92148E1B4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitCompare.Server", "RefitCompare.Server\RefitCompare.Server.csproj", "{3E0AA8B5-8DFF-4FF9-9A40-FFD6F49411FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitVsRestSharp.Server", "RefitVsRestSharp.Server\RefitVsRestSharp.Server.csproj", "{3E0AA8B5-8DFF-4FF9-9A40-FFD6F49411FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

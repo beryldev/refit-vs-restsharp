@@ -1,11 +1,11 @@
 using Refit;
-using RefitCompare.Server.Views;
+using RefitVsRestSharp.Server.Views;
 using RestSharp;
 using Xunit;
 
 namespace RefitCompare.Test
 {
-    public partial class SimpleGetRequest
+    public class SimpleGetRequest
     {
         [Fact]
         public async void DoWithRefit()
@@ -14,8 +14,7 @@ namespace RefitCompare.Test
 
             UserView user = await api.GetUser("TestUser");
             
-            Assert.NotNull(user);
-            Assert.Equal("TestUser", user.Name);
+            AssertResult(user);
         }
 
         [Fact]
@@ -28,6 +27,11 @@ namespace RefitCompare.Test
             IRestResponse<UserView> response = await client.ExecuteTaskAsync<UserView>(request);
             UserView user = response.Data;
             
+            AssertResult(user);
+        }
+
+        private void AssertResult(UserView user)
+        {
             Assert.NotNull(user);
             Assert.Equal("TestUser", user.Name);
         }

@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace RefitCompare.Server
+namespace RefitVsRestSharp.Server
 {
     public class Startup
     {

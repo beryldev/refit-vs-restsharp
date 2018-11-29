@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RefitCompare.Server.Views
+namespace RefitVsRestSharp.Server.Views
 {
     public class UserView
     {

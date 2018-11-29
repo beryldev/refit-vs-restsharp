@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RefitCompare.Server.Views;
+using RefitVsRestSharp.Server.Views;
 
-namespace RefitCompare.Server.Controllers
+namespace RefitVsRestSharp.Server.Controllers
 {
     [Route("api/users")]
     [ApiController]

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using Refit;
-using RefitCompare.Server.Views;
+using RefitVsRestSharp.Server.Views;
 
 namespace RefitCompare.Test
 {

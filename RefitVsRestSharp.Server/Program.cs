@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace RefitCompare.Server
+namespace RefitVsRestSharp.Server
 {
     public class Program
     {
