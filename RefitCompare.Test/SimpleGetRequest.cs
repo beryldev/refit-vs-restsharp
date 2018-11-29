@@ -12,27 +12,24 @@ namespace RefitCompare.Test
         {
             var api = RestService.For<IUsers>("http://localhost:5000");
 
-            UserView user = await api.GetUser("testuser");
+            UserView user = await api.GetUser("TestUser");
             
             Assert.NotNull(user);
-            Assert.Equal("Test user", user.Name);
+            Assert.Equal("TestUser", user.Name);
         }
 
         [Fact]
-        public void DoByRestSharp()
+        public async void DoByRestSharp()
         {
             var client = new RestClient("http://localhost:5000");
             var request = new RestRequest("api/users/{username}", Method.GET);
-            request.AddUrlSegment("username", "testuser");
+            request.AddUrlSegment("username", "TestUser");
 
-            client.ExecuteAsync<UserView>(request, response =>
-            {
-                UserView user = response.Data;
+            IRestResponse<UserView> response = await client.ExecuteTaskAsync<UserView>(request);
+            UserView user = response.Data;
             
-                Assert.NotNull(user);
-                Assert.Equal("Test user", user.Name);
-            });
-            
+            Assert.NotNull(user);
+            Assert.Equal("TestUser", user.Name);
         }
     }
 }
