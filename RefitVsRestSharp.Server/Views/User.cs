@@ -2,7 +2,7 @@
 
 namespace RefitVsRestSharp.Server.Views
 {
-    public class UserView
+    public class User
     {
         public string Name { get; set; }
         public string Description { get; set; }

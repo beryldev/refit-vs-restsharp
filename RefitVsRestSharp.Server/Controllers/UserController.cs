@@ -1,4 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using RefitVsRestSharp.Server.Views;
 
 namespace RefitVsRestSharp.Server.Controllers
@@ -7,15 +13,46 @@ namespace RefitVsRestSharp.Server.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        [HttpGet("{username}")]
-        public ActionResult<UserView> GetUser(string username)
+        private readonly ILogger _logger;
+        private static IEnumerable<User> Users => new[]
         {
-            return new UserView
+            new User
+            {
+                Name = "username",
+                Description = "Sample user",
+                Roles = new[] {"RoleA", "RoleB"}
+            }
+        };
+
+        public UserController(ILogger<UserController> logger)
+        {
+            _logger = logger;
+        }
+        
+        [HttpGet]
+        public ActionResult<IEnumerable<User>> Search(string role = "")
+        {
+            return string.IsNullOrEmpty(role) ? Users.ToList()
+                : Users.Where(u => u.Roles.Contains(role)).ToList();
+        }
+        
+        [HttpGet("{username}")]
+        public ActionResult<User> Get(string username)
+        {
+            return new User
             {
                 Name = username,
                 Description = "Sample user",
-                Roles = new []{"First role", "Second role"}
+                Roles = new []{"RoleA", "RoleB"}
             };
+        }
+
+        [HttpPost]
+        public ActionResult<string> Create()
+        {
+            string body = new StreamReader(Request.Body).ReadToEnd();
+            _logger.LogInformation($"Request body: {body}");
+            return body;
         }
     }
 }
