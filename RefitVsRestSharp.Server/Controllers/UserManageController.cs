@@ -24,10 +24,11 @@ namespace RefitVsRestSharp.Server.Controllers
             file.CopyTo(stream);
 
             string fileContent = Encoding.UTF8.GetString(stream.ToArray());
+            string filename = file.FileName;
 
             _logger.LogInformation($"File content: {fileContent}");
             
-            return fileContent;
+            return $"{filename}:{fileContent}";
         }
     }
     

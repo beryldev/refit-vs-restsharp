@@ -19,19 +19,72 @@ namespace RefitVsRestSharp.Test
             var client = new RestClient("http://localhost:5000");
             var request = new RestRequest("files/upload", Method.POST);
             byte[] bytes = Encoding.UTF8.GetBytes(FileContent);
-            request.AddFile("file", bytes, "filename");
+            request.AddFile("file", bytes, "filename.txt");
 
             IRestResponse<string> response = await client.ExecuteTaskAsync<string>(request);
 
             string responseContent = response.Data;
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal(FileContent, responseContent);
+            Assert.Equal($"filename.txt:{FileContent}", responseContent);
         }
         //// https://github.com/restsharp/RestSharp/issues/1209
         //// https://github.com/restsharp/RestSharp/commit/25beb00bf611d58dabdb3e0235d88ff8185fe18b
 
         [Fact]
-        public async Task DoWithRefit()
+        public async Task DoWithRefitUsingByteArray()
+        {
+            var api = RestService.For<IUploadFile>("http://localhost:5000");
+
+            byte[] bytes = Encoding.UTF8.GetBytes(FileContent);
+            HttpResponseMessage response = await api.Upload(bytes);
+
+            string responseContent = await response.Content.ReadAsStringAsync();        
+            Assert.Equal($"file:{FileContent}", responseContent);
+        }
+
+        [Fact]
+        public async Task DoWithRefitUsingStream()
+        {
+            var api = RestService.For<IUploadFile>("http://localhost:5000");
+            
+            var stream = new MemoryStream(Encoding.UTF8.GetBytes(FileContent));
+            HttpResponseMessage response = await api.Upload(stream);
+
+            string responseContent = await response.Content.ReadAsStringAsync();
+            Assert.Equal($"file:{FileContent}", responseContent);   
+        }
+
+        [Fact]
+        public async Task DoWithRefitUsingFileInfo()
+        {
+            using (var fileStream = new FileStream("filename.txt", FileMode.Create))
+            {
+                await fileStream.WriteAsync(Encoding.UTF8.GetBytes(FileContent));
+            }
+ 
+            var api = RestService.For<IUploadFile>("http://localhost:5000");
+            
+            var fileInfo = new FileInfo("filename.txt");
+            HttpResponseMessage response = await api.Upload(fileInfo);
+
+            string responseContent = await response.Content.ReadAsStringAsync();
+            Assert.Equal($"filename.txt:{FileContent}", responseContent);
+        }
+
+        [Fact]
+        public async Task DoWithRefitUsingByteArrayPart()
+        {
+            var api = RestService.For<IUploadFile>("http://localhost:5000");
+            
+            var bytes = new ByteArrayPart(Encoding.UTF8.GetBytes(FileContent), "filename.txt");
+            HttpResponseMessage response = await api.Upload(bytes);
+
+            string responseContent = await response.Content.ReadAsStringAsync();
+            Assert.Equal($"filename.txt:{FileContent}", responseContent);
+        }
+        
+        [Fact]
+        public async Task DoWithRefitUsingStreamPart()
         {
             var api = RestService.For<IUploadFile>("http://localhost:5000");
 
@@ -39,7 +92,25 @@ namespace RefitVsRestSharp.Test
             HttpResponseMessage response = await api.Upload(new StreamPart(stream, "filename.txt"));
 
             string responseContent = await response.Content.ReadAsStringAsync();
-            Assert.Equal(FileContent, responseContent);
+            Assert.Equal($"filename.txt:{FileContent}", responseContent);
         }
+
+        [Fact]
+        public async Task DoWithRefitUsingFileInfoPart()
+        {
+            using (var fileStream = new FileStream("filename2.txt", FileMode.Create))
+            {
+                await fileStream.WriteAsync(Encoding.UTF8.GetBytes(FileContent));
+            }
+            
+            var api = RestService.For<IUploadFile>("http://localhost:5000");
+            
+            var fileInfo = new FileInfoPart(new FileInfo("filename2.txt"), "filename.txt");
+            HttpResponseMessage response = await api.Upload(fileInfo);
+
+            string responseContent = await response.Content.ReadAsStringAsync();
+            Assert.Equal($"filename.txt:{FileContent}", responseContent);
+        }
+
     }
 }
