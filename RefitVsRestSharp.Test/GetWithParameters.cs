@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Refit;
 using RefitVsRestSharp.Server.Views;
+using RefitVsRestSharp.Test.Apis;
 using RestSharp;
 using Xunit;
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Refit;
 using RefitVsRestSharp.Server.Views;
 
-namespace RefitVsRestSharp.Test
+namespace RefitVsRestSharp.Test.Apis
 {
     interface IUsers
     {

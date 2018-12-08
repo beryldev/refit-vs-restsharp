@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Refit;
 
-namespace RefitVsRestSharp.Test
+namespace RefitVsRestSharp.Test.Apis
 {
     interface IUploadFile
     {

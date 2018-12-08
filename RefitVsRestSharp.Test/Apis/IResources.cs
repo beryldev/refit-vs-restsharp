@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Refit;
 
-namespace RefitVsRestSharp.Test
+namespace RefitVsRestSharp.Test.Apis
 {
     public interface IResources
     {

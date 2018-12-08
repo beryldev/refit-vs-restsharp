@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Refit;
+using RefitVsRestSharp.Test.Apis;
 using RestSharp;
 using Xunit;
 
