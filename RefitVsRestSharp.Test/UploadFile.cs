@@ -9,7 +9,7 @@ using Xunit;
 
 namespace RefitVsRestSharp.Test
 {
-    public class UploadFile
+    public sealed class UploadFile
     {
         private const string FileContent = "File Content";
         
