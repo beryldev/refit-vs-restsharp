@@ -1,17 +1,17 @@
 # Refit vs RestSharp
-##Comparison of basic use cases
+## Comparison of basic use cases
 
 [Refit](https://github.com/reactiveui/refit)
 
 [RestSharp](http://restsharp.org/)
 
 
-####1. Simple GET
+#### 1. Simple GET
 
-####2. GET with parameters
+#### 2. GET with parameters
 
-####3. POST with body
+#### 3. POST with body
 
-####4. File upload
+#### 4. File upload
 
-####5. Usage of headers  
+#### 5. Usage of headers  
