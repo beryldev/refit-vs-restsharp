@@ -28,8 +28,6 @@ namespace RefitVsRestSharp.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             Assert.Equal($"filename.txt:{FileContent}", responseContent);
         }
-        //// https://github.com/restsharp/RestSharp/issues/1209
-        //// https://github.com/restsharp/RestSharp/commit/25beb00bf611d58dabdb3e0235d88ff8185fe18b
 
         [Fact]
         public async Task DoWithRefitUsingByteArray()
