@@ -22,7 +22,7 @@ namespace RefitVsRestSharp.Test
             byte[] bytes = Encoding.UTF8.GetBytes(FileContent);
             request.AddFile("file", bytes, "filename.txt");
 
-            IRestResponse<string> response = await client.ExecuteTaskAsync<string>(request);
+            IRestResponse<string> response = await client.ExecuteAsync<string>(request);
 
             string responseContent = response.Data;
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);

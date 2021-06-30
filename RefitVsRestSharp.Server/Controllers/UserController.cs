@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RefitVsRestSharp.Server.Views;
@@ -46,9 +47,10 @@ namespace RefitVsRestSharp.Server.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Create()
+        public async Task<string> Create()
         {
-            string body = new StreamReader(Request.Body).ReadToEnd();
+            using var sr = new StreamReader(Request.Body);
+            string body = await sr.ReadToEndAsync();
             _logger.LogInformation($"Request body: {body}");
             return body;
         }

@@ -18,7 +18,7 @@ namespace RefitVsRestSharp.Test
             var request = new RestRequest("api/resources");
             request.AddHeader("x-test", "header value");
 
-            IRestResponse<string> response = await client.ExecuteTaskAsync<string>(request);
+            IRestResponse<string> response = await client.ExecuteAsync<string>(request);
 
             string responseContent = response.Data;
             Assert.Equal("x-test:header value", responseContent);

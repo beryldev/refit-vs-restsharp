@@ -22,7 +22,7 @@ namespace RefitVsRestSharp.Test
             var request = new RestRequest("api/users", Method.POST);
             request.AddJsonBody(new User {Name = UserName, Description = Description});
 
-            IRestResponse<string> response = await client.ExecuteTaskAsync<string>(request);
+            IRestResponse<string> response = await client.ExecuteAsync<string>(request);
             
             AssertJsonResult(response.Data);
         }

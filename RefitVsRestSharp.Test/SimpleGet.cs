@@ -16,7 +16,7 @@ namespace RefitVsRestSharp.Test
             var request = new RestRequest("api/users/{username}");
             request.AddUrlSegment("username", "TestUser");
 
-            IRestResponse<User> response = await client.ExecuteTaskAsync<User>(request);
+            IRestResponse<User> response = await client.ExecuteAsync<User>(request);
             User user = response.Data;
             
             AssertResult(user);

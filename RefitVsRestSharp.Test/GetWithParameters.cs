@@ -18,7 +18,7 @@ namespace RefitVsRestSharp.Test
             var request = new RestRequest("api/users");
             request.AddParameter("role", "RoleA");
 
-            IRestResponse<IEnumerable<User>> response = await client.ExecuteTaskAsync<IEnumerable<User>>(request);
+            IRestResponse<IEnumerable<User>> response = await client.ExecuteAsync<IEnumerable<User>>(request);
             IEnumerable<User> users = response.Data;
             
             AssertResult(users);
